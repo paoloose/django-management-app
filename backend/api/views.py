@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.http import HttpRequest
+from django.http import JsonResponse
 
-# Create your views here.
+def api_home(_: HttpRequest):
+    return JsonResponse({
+        'status': 'UP'
+    })
