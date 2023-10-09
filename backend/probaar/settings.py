@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
+    'drf_spectacular',
     'api',
     'articles'
 ]
@@ -68,6 +69,20 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+# Swagger documentation
+# https://drf-spectacular.readthedocs.io/en/latest/settings.html
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Probaar\'s API',
+    'DESCRIPTION':
+        'API Swagger endpoint for easily testing!' + '\n\n\n' +
+        'Use `username="test"` and `password="test"` for authentication at `/api/token` ' +
+        'and put the access token in the Authorization box at the right side.',
+    'VERSION': '0.1.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SWAGGER_UI_FAVICON_HREF': 'https://www.probaar.co/web/image/website/2/favicon?unique=b160368'
 }
 
 ROOT_URLCONF = 'probaar.urls'

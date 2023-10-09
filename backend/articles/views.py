@@ -1,19 +1,24 @@
-from django.contrib.auth.models import User
+"""
+Authentication and authorization are handled by the default permissions classes:
+`rest_framework_simplejwt.authentication.JWTAuthentication`
+"""
 from rest_framework import generics, permissions
 
 from articles.models import Article
 from articles.serializers import ArticleSerializer
 
 class ArticleListCreate(generics.ListCreateAPIView):
+    """
+    A read/create endpoint for listing and creating articles.
+    """
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    def perform_create(self, serializer: ArticleSerializer):
-        print(self.request.user)
-        serializer.save()
-
 class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    The read/update/delete endpoint for individual articles.
+    """
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     lookup_field = 'pk'
