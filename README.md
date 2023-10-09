@@ -8,6 +8,9 @@ A management app made with the Django REST Framework.
 - [X] Swagger UI endpoint.
 - [X] Containerization with Docker.
 
+Running live at <http://django.paoloose.site>. Use the `ŧest:test` credentials to authorize the
+requests.
+
 ## Development
 
 Requirements:
@@ -76,6 +79,12 @@ docker run -it -p 8000:8000 \
   --env-file .env \
   django-management-app
 ```
+
+## Going to production
+
+Please refer to the
+[Django deployment checklist](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/)
+for more information.
 
 ## Coding style
 
