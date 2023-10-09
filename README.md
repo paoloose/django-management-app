@@ -5,12 +5,15 @@ A management app made with the Django REST Framework.
 - [X] Basic CRUD operations over the Article resource.
 - [X] Authentication with JWT.
 - [X] Unit testing.
+- [X] Swagger UI endpoint.
+- [X] Containerization with Docker.
 
 ## Development
 
 Requirements:
 
 - Python 3.11.x
+- Docker (optional)
 
 Setup a Python virtual environment and install the dependencies.
 
@@ -27,6 +30,12 @@ Install the dependencies.
 
 ```bash
 pip install -r requirements.txt
+```
+
+Create a `.env` file based on the `.env.example` file and set the environment variables.
+
+```bash
+cp .env.example .env
 ```
 
 Subsequent commands are made in the `./backend` directory:
@@ -50,24 +59,25 @@ You'll see a Swagger UI endpoint. Use your newly created credentials to authoriz
 
 ## Running with Docker
 
-Build the image.
+You can also use the `docker-compose.yml` file to run the container. By default, it will bind
+the **port 80** to the host machine and create a superuser with the credentials specified in the
+`.env` file.
+
+```bash
+docker-compose up
+```
+
+You can also build and run the image yourself.
 
 ```bash
 docker build -t django-management-app .
-# Verify it with `$ docker images`
-```
 
-Run the container exposing the port 8000 and create a superuser.
-
-```bash
 docker run -it -p 8000:8000 \
-  -e DJANGO_SUPERUSER_USERNAME=admin \
-  -e DJANGO_SUPERUSER_PASSWORD=password \
-  -e DJANGO_SUPERUSER_EMAIL=admin@example.com \
+  --env-file .env \
   django-management-app
 ```
 
-## Code style
+## Coding style
 
 - For Django settings and properties, prefer the [use of lists over tuples](https://docs.djangoproject.com/en/dev/releases/1.9/#default-settings-that-were-tuples-are-now-lists).
 - Use type annotations for function arguments and return values when possible. `self` doesn't need
