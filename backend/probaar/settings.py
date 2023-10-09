@@ -29,7 +29,7 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'AUTH_HEADER_TYPES': ('Bearer',),
-    'ALGORITHM': 'HS256', # HMAC with SHA-256
+    'ALGORITHM': 'HS256',  # HMAC with SHA-256
     'SIGNING_KEY': getenv('JWT_SIGNING_KEY'),
     'VERIFYING_KEY': None,
 }

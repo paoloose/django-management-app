@@ -5,9 +5,7 @@ Note that TEST_REQUEST_DEFAULT_FORMAT is set to 'json' by default.
 """
 from django.urls import reverse
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from rest_framework.test import APITestCase
-from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import status
 
 class ArticleTest(APITestCase):
