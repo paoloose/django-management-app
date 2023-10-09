@@ -8,7 +8,7 @@ A management app made with the Django REST Framework.
 - [X] Swagger UI endpoint.
 - [X] Containerization with Docker.
 
-Running live at <http://django.paoloose.site>. Use the `ŧest:test` credentials to authorize the
+Running 🔴 live at <http://django.paoloose.site>. Use the `ŧest:test` credentials to authorize the
 requests.
 
 ## Development
@@ -80,7 +80,20 @@ docker run -it -p 8000:8000 \
   django-management-app
 ```
 
+## Running the tests
+
+Unit tests were written for the JWT authentication and the Article resource operations. Run the
+tests' suite with:
+
+```bash
+python ./manage.py test
+```
+
 ## Going to production
+
+Define your environment variables in the `.env` file. Use the `.env.example` file as a reference.
+
+Edit the `probaar.settings.ALLOWED_HOSTS` setting to include your domain name.
 
 Please refer to the
 [Django deployment checklist](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/)
