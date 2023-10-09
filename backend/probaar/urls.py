@@ -17,7 +17,8 @@ openapi_view = get_schema_view(
     title='Probaar\'s API',
     description='API Swagger endpoint for easily testing!',
     version='0.0.1',
-    permission_classes=[]
+    permission_classes=[],
+    public=True
 )
 
 urlpatterns = [
