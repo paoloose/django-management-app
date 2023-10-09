@@ -60,6 +60,7 @@ MIDDLEWARE = [
 ]
 
 REST_FRAMEWORK = {
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'DEFAULT_PERMISSION_CLASSES': [
         # Allow only authenticated users by default.
         'rest_framework.permissions.IsAuthenticated',
