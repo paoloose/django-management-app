@@ -12,6 +12,7 @@ WORKDIR /app
 
 RUN python3 ./manage.py makemigrations
 RUN python3 ./manage.py migrate
+RUN python3 ./manage.py createsuperuser --noinput
 RUN addgroup -g 1000 appuser
 RUN adduser -u 1000 -G appuser -D -h /home/appuser -s /bin/sh appuser
 RUN chown -R appuser:appuser /app
