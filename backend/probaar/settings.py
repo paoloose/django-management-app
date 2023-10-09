@@ -12,8 +12,6 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import sys
-print(Path.joinpath(BASE_DIR.parent, '.env').resolve().absolute.__str__(), file=sys.stderr)
 load_dotenv(Path.joinpath(BASE_DIR.parent, '.env'))
 
 # Quick-start development settings - unsuitable for production
